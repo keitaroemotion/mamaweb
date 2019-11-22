@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 
 cd piano
-sudo grails run-app --port=80
+
+if [ ! -z $(which grails) ]; then
+    sudo grails run-app --port=80
+else
+    JAVA_HOME=$(dirname $( readlink -f $(which java) ))
+    JAVA_HOME=$(realpath "$JAVA_HOME"/../)
+    export JAVA_HOME
+    $HOME/.sdkman/candidates/grails/4.0.1/bin/grails run-app --port=80
+fi
