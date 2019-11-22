@@ -1,70 +1,100 @@
 <!doctype html>
 <html lang="en" class="no-js">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>
-        <g:layoutTitle default="Grails"/>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-
-    <asset:stylesheet src="application.css"/>
-
-    <g:layoutHead/>
-</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <body>
+    Piano website
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
-    <a class="navbar-brand" href="/#"><asset:image src="grails.svg" alt="Grails Logo"/></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
-        <ul class="nav navbar-nav ml-auto">
-            <g:pageProperty name="page.nav"/>
-        </ul>
+    <h1 class="logo">
+      <span class="word1">The</span>
+      <span class="word2">Leonardo</span>
+    </h1>
+    <p>
+        <a href="http://www.hacknightslc.com/">
+            Hack Night SLC
+        </a> 
+    <div>
+    
     </div>
-
-</nav>
-
-<g:layoutBody/>
-
-<div class="footer row" role="contentinfo">
-    <div class="col">
-        <a href="http://guides.grails.org" target="_blank">
-            <asset:image src="advancedgrails.svg" alt="Grails Guides" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://guides.grails.org" target="_blank">Grails Guides</a></strong>
-        <p>Building your first Grails app? Looking to add security, or create a Single-Page-App? Check out the <a href="http://guides.grails.org" target="_blank">Grails Guides</a> for step-by-step tutorials.</p>
-
-    </div>
-    <div class="col">
-        <a href="http://docs.grails.org" target="_blank">
-            <asset:image src="documentation.svg" alt="Grails Documentation" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://docs.grails.org" target="_blank">Documentation</a></strong>
-        <p>Ready to dig in? You can find in-depth documentation for all the features of Grails in the <a href="http://docs.grails.org" target="_blank">User Guide</a>.</p>
-
-    </div>
-
-    <div class="col">
-        <a href="https://grails-slack.cfapps.io" target="_blank">
-            <asset:image src="slack.svg" alt="Grails Slack" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="https://grails-slack.cfapps.io" target="_blank">Join the Community</a></strong>
-        <p>Get feedback and share your experience with other Grails developers in the community <a href="https://grails-slack.cfapps.io" target="_blank">Slack channel</a>.</p>
-    </div>
-</div>
-
-
-<div id="spinner" class="spinner" style="display:none;">
-    <g:message code="spinner.alt" default="Loading&hellip;"/>
-</div>
-
-<asset:javascript src="application.js"/>
-
 </body>
 </html>
+
+<style>
+    body {
+      background: #282828;/* match border color */
+      text-align: center;
+    }
+
+    a {
+      color: #dc006c;
+    }
+
+    small {
+      color: #333;
+    }
+
+    .logo {
+      font: 84px 'Arial Narrow', sans-serif;/* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
+      color: #fefefe;
+      text-transform: uppercase;
+      letter-spacing: -4px;
+    }
+
+    /* stuff for both words */
+    .logo span {
+      position: relative;
+    }
+
+    .logo span:before,
+    .logo span:after {
+      content: '';
+      position: absolute;
+      border-width: 32px;/* makes a nice, big 64px square */
+      border-style: solid;
+      border-color: transparent;
+      height: 0;
+      z-index: 10;
+    }
+
+    /* stuff for 1st word */
+    .logo .word1 {
+      color: #dc006c;
+      margin-right: -38px;
+      transform: rotateY(180deg);/* using Prefix free */
+      display: inline-block;/* required for transform */
+      z-index: 10;/* stack 1st word on top */
+    }
+
+    .logo .word1:before {
+      right: -4px;/* would be left, but we flipped the word */
+      top: -9px;
+      border-top-color: #282828;/* match background color */
+      border-right-color: #282828;/* would be left, but we flipped the word */
+    }
+
+    .logo .word1:after {
+      left: 17px;/* would be right, but we flipped the word */
+      bottom: -15px;
+      border-bottom-color: #282828;
+      border-left-color: #282828;/* would be right, but we flipped the word */
+    }
+
+    /* stuff for 2nd word */
+    .logo .word2 {
+      z-index: 0;/* stack 2nd word below */
+    }
+
+    .logo .word2:before {
+      left: -4px;
+      top: -6px;
+      border-top-color: #282828;
+      border-left-color: #282828;
+    }
+
+    .logo .word2:after {
+      right: -4px;  
+      bottom: 4px;
+      border-bottom-color: #282828;
+      border-right-color: #282828;
+    }
+</style>
