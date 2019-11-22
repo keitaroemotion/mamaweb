@@ -70,12 +70,7 @@ if [[ ! $operation =~ ^-[csgr] ]]; then
     show_help_menu
 fi
 
-shift
-case $operation in
--c)
-    ssh -i $key $user@$ip
-    ;;
--s)
+scp_file() {
     file_from=$1
     alert_missing_value "scp_target_file" $file_from
 
@@ -87,8 +82,18 @@ case $operation in
     remote_target_dir=$remote_root_dir/$(dirname $file_from)
     ssh -i $key $user@$ip "mkdir -p $remote_target_dir" 
     scp -i $key $file_from $user@$ip:$remote_target_dir
+}
+
+shift
+case $operation in
+-c)
+    ssh -i $key $user@$ip
+    ;;
+-s)
+    scp_file $1 
     ;;
 -g)
+    scp_file $1 
     ;;
 -r)
     dir_from=$1
