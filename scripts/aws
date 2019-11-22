@@ -52,3 +52,10 @@ do
     fi
 done
 
+#
+# -c                  ... simple ssh connection to the EC2 instance
+# -s [file path]      ... send single file to the EC2 instance
+# -g [opt: --cached]  ... send git diff result to the EC2 instance
+# -r [directory path] ... send recursively (including subsirectory) to the EC2 instance
+#
+
