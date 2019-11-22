@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+set -e
 cd piano
 
 if [ ! -z $(which grails) ]; then
     sudo grails run-app --port=80
-else
+else    
+    #
+    # This works in Ubuntu18.04 LTS
+    #
     JAVA_HOME=$(dirname $( readlink -f $(which java) ))
     JAVA_HOME=$(realpath "$JAVA_HOME"/../)
-    export JAVA_HOME
-    $HOME/.sdkman/candidates/grails/4.0.1/bin/grails run-app --port=80
+    sudo -E $HOME/.sdkman/candidates/grails/4.0.1/bin/grails run-app --port=80
 fi

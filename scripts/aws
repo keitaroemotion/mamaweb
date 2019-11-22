@@ -112,7 +112,8 @@ case $operation in
 -l)
     ssh -i $key $user@$ip 'curl -s https://get.sdkman.io | bash'
     ssh -i $key $user@$ip 'source "$HOME/.sdkman/bin/sdkman-init.sh"; sdk install grails'
-    ssh -i $key $user@$ip 'sudo apt install default-jre -y; sudo apt install default-jdk -y;'
+    ssh -i $key $user@$ip 'sudo apt upgrade -y; sudo apt install openjdk-8-jdk openjdk-8-jre -y'
+    ssh -i $key $user@$ip 'rm -rf build'
     ;;
 -c)
     ssh -i $key $user@$ip
