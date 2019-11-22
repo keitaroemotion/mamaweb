@@ -46,16 +46,38 @@ operation=""
 for x in $@
 do
     if [[ $x == -* ]]; then
-        echo $x
         operation=$x
         break
     fi
 done
 
-#
-# -c                  ... simple ssh connection to the EC2 instance
-# -s [file path]      ... send single file to the EC2 instance
-# -g [opt: --cached]  ... send git diff result to the EC2 instance
-# -r [directory path] ... send recursively (including subsirectory) to the EC2 instance
-#
+echo $operation
+alert_missing_value $operation
 
+show_help_menu() {
+    echo ""
+    echo " -c                  ... simple ssh connection to the EC2 instance"
+    echo " -s [file path]      ... send single file to the EC2 instance"
+    echo " -g [opt: --cached]  ... send git diff result to the EC2 instance"
+    echo " -r [directory path] ... send recursively (including subsirectory) to the EC2 instance"
+    echo ""
+}
+
+if [[ ! $operation =~ ^-[csgr] ]]; then
+    printf "operation arg is incorrect."
+    show_help_menu
+fi
+
+shift
+case $operation in
+-c)
+    ;;
+-s)
+    ;;
+-g)
+    ;;
+-r)
+    ;;
+*)
+    ;;
+esac
