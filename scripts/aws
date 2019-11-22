@@ -93,7 +93,11 @@ case $operation in
     scp_file $1 
     ;;
 -g)
-    scp_file $1 
+    options=$*
+    for file in $(git diff $options --name-only)
+    do
+        scp_file $file 
+    done
     ;;
 -r)
     dir_from=$1
