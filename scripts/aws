@@ -58,6 +58,7 @@ alert_missing_value "operation arg" $operation
 
 show_help_menu() {
     echo ""
+    echo ""
     echo "./scripts/aws -c                  ... simple ssh connection to the EC2 instance"
     echo "./scripts/aws -s [file path]      ... send single file to the EC2 instance"
     echo "./scripts/aws -g [opt: --cached]  ... send git diff result to the EC2 instance"
@@ -65,9 +66,10 @@ show_help_menu() {
     echo "./scripts/aws -r [directory path] ... send recursively (including subsirectory) to the EC2 instance"
     echo "./scripts/aws -h                  ... show help menu"
     echo ""
+    exit
 }
 
-if [[ ! $operation =~ ^-[csgr] ]]; then
+if [[ ! $operation =~ ^-[csgra] ]]; then
     printf "operation arg is incorrect."
     show_help_menu
 fi
