@@ -2,6 +2,7 @@
 
 # XXX read credentials (private key, user, ipaddr, which should not be exposed to Github)
 
+remote_root_dir="~"
 key=""
 user=""
 ip=""
@@ -83,7 +84,6 @@ case $operation in
         exit
     fi
 
-    remote_root_dir="~"
     remote_target_dir=$remote_root_dir/$(dirname $file_from)
     ssh -i $key $user@$ip "mkdir -p $remote_target_dir" 
     scp -i $key $file_from $user@$ip:$remote_target_dir
@@ -99,6 +99,9 @@ case $operation in
         exit
     fi
 
+    remote_target_dir=$remote_root_dir/$(dirname $dir_from)
+    ssh -i $key $user@$ip "mkdir -p $remote_target_dir" 
+    scp -r -i $key $dir_from $user@$ip:$remote_target_dir
     ;;
 *)
     ;;
