@@ -77,8 +77,16 @@ case $operation in
 -s)
     file_from=$1
     alert_missing_value "scp_target_file" $file_from
+
+    if [ ! -f $file_from ]; then
+        printf "\nFile path is not in correct type. Please specify the file, not directory\n\n"
+        exit
+    fi
+
     remote_root_dir="~"
-    echo scp -i $key $file_from $user@$ip:$remote_root_dir:/$(dirname $file_from)
+    remote_target_dir=$remote_root_dir/$(dirname $file_from)
+    ssh -i $key $user@$ip "mkdir -p $remote_target_dir" 
+    scp -i $key $file_from $user@$ip:$remote_target_dir
     ;;
 -g)
     ;;
