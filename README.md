@@ -24,6 +24,9 @@ user=[user name of target aws ec2 instance]
 ip=[ip of target aws ec2 instance]
 ```
 
+```
+```
+
 (Sample file is secret.bk so remove the extension '.bk' and reconfigure it)
 
 ./scripts/aws also supports the `git diff` based deploy, which saves bandwidth for deploying tons of files.

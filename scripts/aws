@@ -61,6 +61,7 @@ show_help_menu() {
     echo "./scripts/aws -c                  ... simple ssh connection to the EC2 instance"
     echo "./scripts/aws -s [file path]      ... send single file to the EC2 instance"
     echo "./scripts/aws -g [opt: --cached]  ... send git diff result to the EC2 instance"
+    echo "./scripts/aws -a                  ... send all files"
     echo "./scripts/aws -r [directory path] ... send recursively (including subsirectory) to the EC2 instance"
     echo "./scripts/aws -h                  ... show help menu"
     echo ""
@@ -71,7 +72,7 @@ if [[ ! $operation =~ ^-[csgr] ]]; then
     show_help_menu
 fi
 
-scp_file() {
+push_file() {
     file_from=$1
     alert_missing_value "scp_target_file" $file_from
 
@@ -85,22 +86,7 @@ scp_file() {
     scp -i $key $file_from $user@$ip:$remote_target_dir
 }
 
-shift
-case $operation in
--c)
-    ssh -i $key $user@$ip
-    ;;
--s)
-    scp_file $1 
-    ;;
--g)
-    options=$*
-    for file in $(git diff $options --name-only)
-    do
-        scp_file $file 
-    done
-    ;;
--r)
+push_dir() {
     dir_from=$1
     alert_missing_value "scp_target_dir" $dir_from
 
@@ -112,6 +98,29 @@ case $operation in
     remote_target_dir=$remote_root_dir/$(dirname $dir_from)
     ssh -i $key $user@$ip "mkdir -p $remote_target_dir" 
     scp -r -i $key $dir_from $user@$ip:$remote_target_dir
+}
+
+shift
+case $operation in
+-c)
+    ssh -i $key $user@$ip
+    ;;
+-s)
+    push_file $1 
+    ;;
+-g)
+    options=$*
+    for file in $(git diff $options --name-only)
+    do
+        push_file $file 
+    done
+    ;;
+-a)
+    push_dir piano
+    push_dir scripts
+    ;;
+-r)
+    push_dir $1
     ;;
 *)
     ;;
