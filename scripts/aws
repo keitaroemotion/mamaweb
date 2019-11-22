@@ -91,6 +91,14 @@ case $operation in
 -g)
     ;;
 -r)
+    dir_from=$1
+    alert_missing_value "scp_target_dir" $dir_from
+
+    if [ ! -d $dir_from ]; then
+        printf "\nDir path is not in correct type. Please specify the dir, not file\n\n"
+        exit
+    fi
+
     ;;
 *)
     ;;
