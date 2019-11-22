@@ -10,6 +10,7 @@ You can use `./scripts/aws` script to easily deploy your code base/changes to th
 ./scripts/aws -c                  ... simple ssh connection to the EC2 instance
 ./scripts/aws -s [file path]      ... send single file to the EC2 instance
 ./scripts/aws -g [opt: --cached]  ... send git diff result to the EC2 instance
+./scripts/aws -a                  ... send all files
 ./scripts/aws -r [directory path] ... send recursively (including subsirectory) to the EC2 instance
 ./scripts/aws -h                  ... show help menu
 ```
@@ -24,10 +25,17 @@ user=[user name of target aws ec2 instance]
 ip=[ip of target aws ec2 instance]
 ```
 
+(Sample file is secret.bk so remove the extension '.bk' and reconfigure it)
+
+### Initial deploy (deploy all)
+
+So, for the initial deploy, with the command below, send all files and subdirs to the remote EC2 instance.
+
 ```
+$ ./scripts/aws -a
 ```
 
-(Sample file is secret.bk so remove the extension '.bk' and reconfigure it)
+### Git base deploy
 
 ./scripts/aws also supports the `git diff` based deploy, which saves bandwidth for deploying tons of files.
 
