@@ -28,7 +28,7 @@ done
 alert_missing_value() {
     key=$1
     if [ -z $key ]; then
-        echo "(${!key@}) missing in config"
+        echo "$(${!key@}) missing in config"
         exit
     fi
 }
@@ -38,3 +38,17 @@ alert_missing_value $user
 alert_missing_value $ip 
 
 echo "$key, $user, $ip"
+
+operation=""
+#
+# Suppose there is only one operation arg starts from '-'
+#
+for x in $@
+do
+    if [[ $x == -* ]]; then
+        echo $x
+        operation=$x
+        break
+    fi
+done
+
