@@ -2,3 +2,39 @@
 
 # XXX read credentials (private key, user, ipaddr, which should not be exposed to Github)
 
+key=""
+user=""
+ip=""
+
+for line in $(cat secret)
+do
+    _key=$(echo $line | cut -d'=' -f 1)
+    _value=$(echo $line | cut -d'=' -f 2)
+    case $_key in
+    key)
+        key=$_value 
+        ;;
+    user)
+        user=$_value 
+        ;;
+    ip)
+        ip=$_value 
+        ;;
+    *)
+        ;;
+    esac
+done
+
+alert_missing_value() {
+    key=$1
+    if [ -z $key ]; then
+        echo "(${!key@}) missing in config"
+        exit
+    fi
+}
+
+alert_missing_value $key 
+alert_missing_value $user 
+alert_missing_value $ip 
+
+echo "$key, $user, $ip"
