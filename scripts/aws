@@ -26,9 +26,9 @@ do
 done
 
 alert_missing_value() {
-    key=$1
-    if [ -z $key ]; then
-        echo "$(${!key@}) missing in config"
+    _key=$1
+    if [ -z $_key ]; then
+        echo "$(${!_key@}) missing in config"
         exit
     fi
 }
@@ -51,7 +51,6 @@ do
     fi
 done
 
-echo $operation
 alert_missing_value $operation
 
 show_help_menu() {
@@ -71,6 +70,7 @@ fi
 shift
 case $operation in
 -c)
+    ssh -i $key $user@$ip
     ;;
 -s)
     ;;
