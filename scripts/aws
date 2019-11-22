@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# XXX read credentials (private key, user, ipaddr, which should not be exposed to Github)
+
