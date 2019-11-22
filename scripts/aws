@@ -26,16 +26,18 @@ do
 done
 
 alert_missing_value() {
-    _key=$1
-    if [ -z $_key ]; then
-        echo "$(${!_key@}) missing in config"
+    target_key=$2
+    message=$1
+
+    if [ -z $target_key ]; then
+        printf "\n$message missing in config\n\n"
         exit
     fi
 }
 
-alert_missing_value $key 
-alert_missing_value $user 
-alert_missing_value $ip 
+alert_missing_value "key"  $key  
+alert_missing_value "user" $user 
+alert_missing_value "ip"   $ip   
 
 echo "$key, $user, $ip"
 
@@ -51,7 +53,7 @@ do
     fi
 done
 
-alert_missing_value $operation
+alert_missing_value "operation arg" $operation 
 
 show_help_menu() {
     echo ""
@@ -73,6 +75,10 @@ case $operation in
     ssh -i $key $user@$ip
     ;;
 -s)
+    file_from=$1
+    alert_missing_value "scp_target_file" $file_from
+    remote_root_dir="~"
+    echo scp -i $key $file_from $user@$ip:$remote_root_dir:/$(dirname $file_from)
     ;;
 -g)
     ;;
