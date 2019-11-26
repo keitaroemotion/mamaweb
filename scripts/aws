@@ -66,12 +66,13 @@ show_help_menu() {
     echo "./scripts/aws -a                  ... send all files"
     echo "./scripts/aws -r [directory path] ... send recursively (including subsirectory) to the EC2 instance"
     echo "./scripts/aws -x                  ... run remotely the grails app"
+    echo "./scripts/aws -X                  ... run remotely the test app"
     echo "./scripts/aws -h                  ... show help menu"
     echo ""
     exit
 }
 
-if [[ ! $operation =~ ^-[csgrlxa] ]]; then
+if [[ ! $operation =~ ^-[csgrlXxa] ]]; then
     printf "operation arg is incorrect."
     show_help_menu
 fi
@@ -107,7 +108,10 @@ push_dir() {
 shift
 case $operation in
 -x)
-    ssh -i $key $user@$ip './scripts/run'
+    ssh -i $key $user@$ip './scripts/run &'
+    ;;
+-X)
+    ssh -i $key $user@$ip 'sudo python -m http.server 80'
     ;;
 -l)
     ssh -i $key $user@$ip 'curl -s https://get.sdkman.io | bash'
