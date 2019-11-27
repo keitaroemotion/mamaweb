@@ -6,76 +6,118 @@
 }
 
 body {
-  background: var(--primary-color);
-  text-align: center;
+    background: var(--primary-color);
+    text-align: center;
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 a {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+#intro {
+    color:       black;
+}
+
+#map {
+    position:     relative;
+    top:          60px;
+}
+
+ul {
+    position:         absolute;
+    top:              0;
+    width:            100%;
+    left:             0;
+    list-style-type:  none;
+    margin:           0;
+    padding:          0;
+    overflow:         hidden;
+    background-color: #333;
+  }
+  
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+p {
 }
 
 small {
-  color:          #333;
+    color:          #333;
 }
 
 .logo {
-  font:           84px 'Arial Narrow', sans-serif;
-  color:          #fefefe;
-  text-transform: uppercase;
-  letter-spacing: -4px;
+    font:           84px 'Arial Narrow', sans-serif;
+    color:          #fefefe;
+    text-transform: uppercase;
+    letter-spacing: -4px;
 }
 
 .logo span {
-  position: relative;
+    position: relative;
 }
 
 .logo span:before,
 .logo span:after {
-  content:      '';
-  position:     absolute;
-  border-width: 32px;
-  border-style: solid;
-  border-color: transparent;
-  height:       0;
-  z-index:      10;
+    content:      '';
+    position:     absolute;
+    border-width: 32px;
+    border-style: solid;
+    border-color: transparent;
+    height:       0;
+    z-index:      10;
 }
 
 .logo .word1 {
-  color:        var(--secondary-color);
-  margin-right: -38px;
-  display:      inline-block;
-  z-index:      10;
+    color:        var(--secondary-color);
+    margin-right: -38px;
+    display:      inline-block;
+    z-index:      10;
 }
 
 .logo .word1:before {
-  right:              -4px;
-  top:                -9px;
-  border-top-color:   var(--third-color);
-  border-right-color: var(--third-color);
+    right:              -4px;
+    top:                -9px;
+    border-top-color:   var(--third-color);
+    border-right-color: var(--third-color);
 }
 
 .logo .word1:after {
-  left:                17px;
-  bottom:              -15px;
-  border-bottom-color: var(--third-color);
-  border-left-color:   var(--third-color);
+    left:                17px;
+    bottom:              -15px;
+    border-bottom-color: var(--third-color);
+    border-left-color:   var(--third-color);
 }
 
 .logo .word2 {
-  z-index: 0;
-  color:   var(--fourth-color);
+    z-index: 0;
+    color:   var(--fourth-color);
 }
 
 .logo .word2:before {
-  left: -4px;
-  top: -6px;
-  border-top-color:  var(--third-color);
-  border-left-color: var(--third-color);
+    left: -4px;
+    top: -6px;
+    border-top-color:  var(--third-color);
+    border-left-color: var(--third-color);
 }
 
 .logo .word2:after {
-  right: -4px;  
-  bottom: 4px;
-  border-bottom-color: var(--third-color);
-  border-right-color: var(--third-color);
+    right: -4px;  
+    bottom: 4px;
+    border-bottom-color: var(--third-color);
+    border-right-color: var(--third-color);
 }

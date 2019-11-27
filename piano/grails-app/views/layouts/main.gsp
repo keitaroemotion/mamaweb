@@ -26,48 +26,8 @@
             小さなお子様からシニアの方まで、年齢を気にせず、ピアノライフを楽しんでみませんか？<br/>
             ハンディのある方も大丈夫。一緒に楽しみましょう<br/>
         </p>
-        <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.5368177482837!2d139.97313721498702!3d35.860359480152994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60189cdfca7ec9c5%3A0x8390b72e393a5daf!2s3%20Chome%20Kashiwa%2C%20Chiba%20277-0005!5e0!3m2!1sen!2sjp!4v1574778459103!5m2!1sen!2sjp" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div>
     </body>
 </html>
 
 <style>
-    #intro {
-        color:       white;
-    }
-
-    #map {
-        position:     relative;
-        top:          60px;
-    }
-
-    ul {
-        position:         absolute;
-        top:              0;
-        width:            100%;
-        left:             0;
-        list-style-type:  none;
-        margin:           0;
-        padding:          0;
-        overflow:         hidden;
-        background-color: #333;
-      }
-      
-    li {
-        float: left;
-    }
-    
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color: #111;
-    }
 </style>
