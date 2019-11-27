@@ -1,18 +1,6 @@
 <!doctype html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<asset:stylesheet src="main.css"/>
 <html lang="en" class="no-js">
-    <!-- Menu panel button added       -->
-    <!-- Should be move to shared page -->
-    <ul>
-      <li><a href="">ホーム</a></li>
-      <li><a href="lessons">レッスン詳細</a></li>
-      <li><a href="">講師プロフィール</a></li>
-      <li><a href="">料金</a></li>
-      <li><a href="">アクセス</a></li>
-      <li><a href="">お問い合わせ</a></li>
-    </ul>
-
+    <g:render template="/shared/menu" />
     <body>
         <h1 class="logo">
           <span class="word1">Piano</span>
