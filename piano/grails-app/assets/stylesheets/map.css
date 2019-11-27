@@ -1,0 +1,14 @@
+#content {
+    float:       left;
+    line-height: 2.6;
+    position:    relative;
+    top:         60px;
+    width:       700px;
+    margin:      auto;
+}
+
+#google_map {
+    position:    relative;
+    top:         60px;
+    float:       left;
+}
