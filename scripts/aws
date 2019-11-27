@@ -131,6 +131,11 @@ case $operation in
     do
         push_file $file 
     done
+
+    for file in $(git diff --cached $options --name-only)
+    do
+        push_file $file 
+    done
     ;;
 -a)
     push_dir piano
