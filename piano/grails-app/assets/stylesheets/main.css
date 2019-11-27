@@ -1,20 +1,3 @@
-:root {
-    --primary-color:   white;
-    --secondary-color: #dc006c;
-    --third-color:     white;
-    --fourth-color:    black;
-}
-
-body {
-    background: var(--primary-color);
-    text-align: center;
-    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-}
-
-a {
-    color: var(--secondary-color);
-}
-
 #intro {
     line-height: 2.6;
     color:       black;
@@ -25,47 +8,37 @@ a {
     top:          60px;
 }
 
-ul {
-    position:         absolute;
-    top:              0;
-    width:            100%;
-    left:             0;
-    list-style-type:  none;
-    margin:           0;
-    padding:          0;
-    overflow:         hidden;
-    background-color: #333;
-  }
-  
-li {
-    float: left;
+.logo .word1 {
+    color:        var(--secondary-color);
+    margin-right: -38px;
+    display:      inline-block;
+    z-index:      10;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.logo .word1:after {
+    left:                17px;
+    bottom:              -15px;
+    border-bottom-color: var(--third-color);
+    border-left-color:   var(--third-color);
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+.logo .word1:before {
+    right:              -4px;
+    top:                -9px;
+    border-top-color:   var(--third-color);
+    border-right-color: var(--third-color);
 }
 
-p {
+.logo .word2 {
+    z-index: 0;
+    color:   var(--fourth-color);
 }
 
-small {
-    color:          #333;
-}
-
-.logo {
-    font:           84px 'Arial Narrow', sans-serif;
-    color:          #fefefe;
-    text-transform: uppercase;
-    letter-spacing: -4px;
+.logo .word2:before {
+    left: -4px;
+    top: -6px;
+    border-top-color:  var(--third-color);
+    border-left-color: var(--third-color);
 }
 
 .logo span {
@@ -83,42 +56,64 @@ small {
     z-index:      10;
 }
 
-.logo .word1 {
-    color:        var(--secondary-color);
-    margin-right: -38px;
-    display:      inline-block;
-    z-index:      10;
+.logo {
+    font:           84px 'Arial Narrow', sans-serif;
+    color:          #fefefe;
+    text-transform: uppercase;
+    letter-spacing: -4px;
 }
 
-.logo .word1:before {
-    right:              -4px;
-    top:                -9px;
-    border-top-color:   var(--third-color);
-    border-right-color: var(--third-color);
+:root {
+    --primary-color:   white;
+    --secondary-color: #dc006c;
+    --third-color:     white;
+    --fourth-color:    black;
 }
 
-.logo .word1:after {
-    left:                17px;
-    bottom:              -15px;
-    border-bottom-color: var(--third-color);
-    border-left-color:   var(--third-color);
+a {
+    color: var(--secondary-color);
 }
 
-.logo .word2 {
-    z-index: 0;
-    color:   var(--fourth-color);
+body {
+    background: var(--primary-color);
+    text-align: center;
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
-.logo .word2:before {
-    left: -4px;
-    top: -6px;
-    border-top-color:  var(--third-color);
-    border-left-color: var(--third-color);
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.logo .word2:after {
-    right: -4px;  
-    bottom: 4px;
-    border-bottom-color: var(--third-color);
-    border-right-color: var(--third-color);
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
+
+li {
+    float: left;
+}
+
+p {
+}
+
+small {
+    color:          #333;
+}
+
+ul {
+    position:         absolute;
+    top:              0;
+    width:            100%;
+    left:             0;
+    z-index:          20;
+    list-style-type:  none;
+    margin:           0;
+    padding:          0;
+    overflow:         hidden;
+    background-color: #333;
+ }
+  
