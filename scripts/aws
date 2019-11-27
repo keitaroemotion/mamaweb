@@ -126,6 +126,7 @@ case $operation in
     push_file $1 
     ;;
 -g)
+    git add .
     options=$*
     for file in $(git diff $options --name-only)
     do
