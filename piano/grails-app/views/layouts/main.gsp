@@ -16,6 +16,11 @@
           <span class="word1">Piano</span>
           <span class="word2">Sharon</span>
         </h1>
+
+        <div id="piano">
+            <g:img dir="images" file="piano1.jpg" width="400"/>
+        </div>
+        
         <p id="intro">
             生徒さんとの出会い、コミュニケーションを大切にし、ピアノを楽しんでいただきたいと願っています。<br/>
             最初は音符が読めなくても大丈夫。<br/>
@@ -29,6 +34,3 @@
         </p>
     </body>
 </html>
-
-<style>
-</style>
