@@ -4,7 +4,7 @@
   <li><a href="/">ホーム</a></li>
   <li><a href="lessons">レッスン詳細</a></li>
   <li><a href="/tutor">講師プロフィール</a></li>
-  <li><a href="/">料金</a></li>
-  <li><a href="/">アクセス</a></li>
-  <li><a href="/">お問い合わせ</a></li>
+  <li><a href="/price">料金</a></li>
+  <li><a href="/map">アクセス</a></li>
+  <li><a href="/support">お問い合わせ</a></li>
 </ul>
